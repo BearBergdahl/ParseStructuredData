@@ -35,7 +35,6 @@ public class Program
     {
         string path = "D:\\repos\\ParseStructuredData\\ParseStructuredData\\FileResource\\Example1.json";
         string jsonFile= ReadFile(path);
-        var serializer = new Newtonsoft.Json.JsonSerializer();
         Menu jsonMenu = JsonConvert.DeserializeObject<Menu>(jsonFile);
            
         return jsonMenu;
@@ -53,7 +52,7 @@ public class Program
         string returnedfile = System.IO.File.ReadAllText(path);
         return returnedfile;
     }
-    protected static T FromXml<T>(String xml)
+    protected static T FromXml<T>(string xml)
     {
         T returnedXmlClass = default(T);
 
@@ -74,8 +73,8 @@ public class Program
         }
         catch (Exception ex)
         {
+            return default(T);
         }
-
         return returnedXmlClass;
     }
 }
